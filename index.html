@@ -1,3 +1,9 @@
+
+<!-- indexing
+ go to routeControl section
+
+-->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,55 +14,35 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>hi</h1>
-    <div id="root"></div>
+    <h1>Hello, world!</h1>
+    <!-- NavBar -->
     <ul>
-      <a href="#" onclick="onNavigate('/about'); return false;">About</a>
-      <a href="#" onclick="onNavigate('/home'); return false;">Home</a>
-      <a href="#" onclick="onNavigate('/contact'); return false;">Contact</a>
+      <a href="#" onclick="onNavigate('/home'); return false;">home</a>
+      <a href="#" onclick="onNavigate('/login'); return false;">login</a>
+      <a href="#" onclick="onNavigate('/signUp'); return false;">signUp</a>
+      <a href="#" onclick="onNavigate('/notFound'); return false;">notFound</a>
     </ul>
-    <script src="./stateManagement/renderContext.js"></script>
-    <script src="./home.js"></script>
-    <script src="./about/about.js"></script>
-    <script src="./contact.js"></script>
-    <script src="./app.js"></script>
+
+
+    <!-- root div, here we are rendering all contents -->
+    <div id="root"></div>
+
+    <!-- import all js files -->
+    <!-- state managements -->
+    <script type="text/javascript" src="./stateManagement/renderContext.js" ></script>
+    <script type="text/javascript" src="./stateManagement/userContext.js" ></script>
+    <!-- routes/components -->
+    <script type="text/javascript" src="./home.js"></script>
+    <script type="text/javascript" src="./login/login.js"></script>
+    <script type="text/javascript" src="./signUp/signUp.js"></script>
+    <script type="text/javascript" src="./notFound/notFound.js"></script>
+    <!-- root js file -->
+    <script type="text/javascript" src="./app.js"></script>
+
+    <!-- internal scripts -->
     <script>
-      //handle route
-      routeToGO = sessionStorage.getItem("routeToGO");
-
-      const rootDiv = document.getElementById("root");
-      rootDiv.innerHTML = routes[window.location.pathname];
-      console.log(window.location.pathname, "window.location.pathname");
-      const onNavigate = (pathName) => {
-        window.history.pushState(
-          {},
-          pathName,
-          window.location.origin + pathName
-        );
-        rootDiv.innerHTML = routes[pathName];
-        if (pathName === "/about") {
-          var aboutDemoID = document.getElementById("addDemo");
-          console.log(aboutDemoID, "aboutDemoID");
-          aboutDemoID.innerHTML = `<h1>Added to about</h1>`;
-        }
-      };
-      console.log(routeToGO, "routeToGO -44", );
-      console.log("working, 47");
-        if (routeToGO === "about") {
-          onNavigate("/about");
-        sessionStorage.setItem('routeToGO', '');
-        }
-        // else if (routeToGO === "/dash") {
-        //   onNavigate("/dash");
-        // }
-        else {
-          sessionStorage.setItem("routeToGO", "");
-          // onNavigate("/notfound404");
-        }
-
-      window.onpopstate = () => {
-        rootDiv.innerHTML = routes[window.location.pathname];
-      };
+      
+      
     </script>
   </body>
 </html>

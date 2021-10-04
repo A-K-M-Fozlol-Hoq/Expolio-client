@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="signUp.css">
+    <title>signUp</title>
+</head>
+<body>
+    
+    <script src="./../stateManagement/renderContext.js"></script>
+    
+    <script>
+        console.log(renderRoute)
+        renderRoute='signUp';
+        console.log(renderRoute)
+        stateUpdated=true;
+        
+        sessionStorage.setItem('routeToGO', 'signUp');
+
+        window.location.href = "/";
+    </script>
+</body>
+</html>
