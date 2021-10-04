@@ -4,22 +4,17 @@ const routes = {
   "/home": home,
   "/login": login,
   "/signUp": signUp,
+  "/aboutUs": aboutUs,
   "/notFound": notFound,
 };
 
-var routeToGO;
-//handle route
-routeToGO = sessionStorage.getItem("routeToGO");
+// What route I have send user
+var routeToGO = sessionStorage.getItem("routeToGO");
+
 //catch root div
 const rootDiv = document.getElementById("root");
 
-rootDiv.innerHTML = routes[window.location.pathname];
-console.log(routes[window.location.pathname],'routes[window.location.pathname];')
-console.log(window.location.pathname, "window.location.pathname");
-
-
-
-
+// sending user on specified route (function)
 const onNavigate = (pathName) => {
   window.history.pushState(
     {},
@@ -27,8 +22,6 @@ const onNavigate = (pathName) => {
     window.location.origin + pathName
   );
   rootDiv.innerHTML = routes[pathName];
-
-  
   // if (pathName === "/login") {
   //   var aboutDemoID = document.getElementById("loginDemo");
   //   console.log(aboutDemoID, "aboutDemoID");
@@ -37,12 +30,9 @@ const onNavigate = (pathName) => {
 };
 
 
-
-
-console.log(routeToGO, "routeToGO -44");
-console.log("working, 47");
-if (routeToGO === "home") {
-  onNavigate("/home");
+// sending user on specified route (function call)
+if (routeToGO === "") {
+  onNavigate("/");
   sessionStorage.setItem("routeToGO", "");
 } 
 else if (routeToGO === "home") {
@@ -57,6 +47,11 @@ else if (routeToGO === "signUp") {
   onNavigate("/signUp");
   sessionStorage.setItem("routeToGO", "");
 } 
+else if (routeToGO === "aboutUs") {
+  console.log("aboutUsaboutUsaboutUsaboutUsaboutUsaboutUs")
+  onNavigate("/aboutUs");
+  sessionStorage.setItem("routeToGO", "");
+} 
 else {
   onNavigate("/notFound");
   sessionStorage.setItem("routeToGO", "");
@@ -65,8 +60,6 @@ else {
 //   onNavigate("/notFound");
 //   sessionStorage.setItem("routeToGO", "");
 // }
-window.onpopstate = () => {
-  rootDiv.innerHTML = routes[window.location.pathname];
-};
-
-// this is routeControl section
+// window.onpopstate = () => {
+//   rootDiv.innerHTML = routes[window.location.pathname];
+// };

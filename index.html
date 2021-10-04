@@ -10,7 +10,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./about/about.css" />
     <title>Document</title>
   </head>
   <body>
@@ -20,9 +19,10 @@
       <a href="#" onclick="onNavigate('/home'); return false;">home</a>
       <a href="#" onclick="onNavigate('/login'); return false;">login</a>
       <a href="#" onclick="onNavigate('/signUp'); return false;">signUp</a>
+      <a href="#" onclick="onNavigate('/aboutUs');return false;">aboutUs</a>
       <a href="#" onclick="onNavigate('/notFound'); return false;">notFound</a>
     </ul>
-
+</div>
 
     <!-- root div, here we are rendering all contents -->
     <div id="root"></div>
@@ -32,16 +32,17 @@
     <script type="text/javascript" src="./stateManagement/renderContext.js" ></script>
     <script type="text/javascript" src="./stateManagement/userContext.js" ></script>
     <!-- routes/components -->
-    <script type="text/javascript" src="./home.js"></script>
+    <script type="text/javascript" src="./home/home.js"></script>
     <script type="text/javascript" src="./login/login.js"></script>
     <script type="text/javascript" src="./signUp/signUp.js"></script>
+    <script type="text/javascript" src="./aboutUs/aboutUs.js"></script>
     <script type="text/javascript" src="./notFound/notFound.js"></script>
     <!-- root js file -->
     <script type="text/javascript" src="./app.js"></script>
 
     <!-- internal scripts -->
     <script>
-      
+      // let a =`<p>ok</p>`;
       
     </script>
   </body>
